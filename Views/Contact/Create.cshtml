@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Contactos";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Contactos</h1>
+    <p>A sua lista de contactos.</p>
+
+    <table class="table table-hover table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Grupo</th>
+                <th>Telefone</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @for (var i = 1; i <= 5; i++)
+            {
+                <tr>
+                    <th scope="row">@i</th>
+                    <td>Acácia Valentim</td>
+                    <td>acaciavalentim@gmail.com</td>
+                    <td>Família</td>
+                    <td>(+244) 999 999 999</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <a role="button" class="btn btn-primary btn-sm">Editar</a>
+                            <a role="button" class="btn btn-danger btn-sm">Apagar</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
