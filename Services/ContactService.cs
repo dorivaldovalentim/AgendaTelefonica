@@ -5,6 +5,7 @@ namespace AgendaTelefonica.Services
 {
     public interface IContact
     {
+        List<ContactModel> GetAll();
         ContactModel Store(ContactModel contact);
     }
 
@@ -15,6 +16,11 @@ namespace AgendaTelefonica.Services
         public ContactService(DatabaseContext dbContext)
         {
             _dbContext = dbContext;
+        }
+
+        public List<ContactModel> GetAll()
+        {
+            return _dbContext.Contacts.ToList();
         }
 
         public ContactModel Store(ContactModel contact)

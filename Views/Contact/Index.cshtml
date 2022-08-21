@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<ContactModel>
+
+@{
     ViewData["Title"] = "Contactos";
 }
 
@@ -29,14 +31,18 @@
         </thead>
 
         <tbody>
-            @for (var i = 1; i <= 10; i++)
+            @if (Model != null && Model.Any())
+            {
+                
+            }
+            @foreach (ContactModel contact in Model)
             {
                 <tr>
-                    <th scope="row">@i</th>
-                    <td>Acácia Valentim</td>
-                    <td>acaciavalentim@gmail.com</td>
+                    <th scope="row">@contact.Id</th>
+                    <td>@contact.Name</td>
+                    <td>@contact.Email</td>
                     <td>Família</td>
-                    <td>(+244) 999 999 999</td>
+                    <td>@contact.Phone</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic example">
                             <a asp-controller="Contact" asp-action="Edit" role="button" class="btn btn-primary btn-sm">Editar</a>

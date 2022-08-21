@@ -15,7 +15,8 @@ namespace AgendaTelefonica.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            List<ContactModel> contacts = _contactServices.GetAll();
+            return View(contacts);
         }
 
         public IActionResult Create()
