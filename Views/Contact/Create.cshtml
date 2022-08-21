@@ -6,7 +6,7 @@
     <h1 class="display-4">Contactos</h1>
     <p>Cadastre aqui um novo contacto.</p>
 
-    <form class="col-5">
+    <form asp-controller="Contact" asp-action="Store" method="POST" class="col-5">
         <div class="mb-3">
             <label for="name" class="form-label">Nome do idiota</label>
             <input type="text" class="form-control" id="name" name="name" />
