@@ -1,4 +1,5 @@
 ﻿using AgendaTelefonica.Data;
+using AgendaTelefonica.Services;
 using Microsoft.EntityFrameworkCore;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
@@ -10,6 +11,7 @@ builder.Services.AddControllersWithViews();
 // Add entity framework resources i guess 😅😅
 var connectionString = builder.Configuration.GetConnectionString("Database");
 builder.Services.AddDbContext<DatabaseContext>(x => x.UseSqlServer(connectionString));
+builder.Services.AddScoped<IContact, ContactService>();
 
 var app = builder.Build();
 
