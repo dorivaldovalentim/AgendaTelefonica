@@ -9,6 +9,8 @@
     <p>Edite aqui o contacto.</p>
 
     <form asp-controller="Contact" asp-action="Update" method="POST" class="col-5">
+        <input type="hidden" asp-for="Id" />
+
         <div class="mb-3">
             <label for="name" class="form-label">Nome do idiota</label>
             <input type="text" class="form-control" id="name" asp-for="Name" />

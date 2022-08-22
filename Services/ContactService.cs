@@ -10,6 +10,8 @@ namespace AgendaTelefonica.Services
         ContactModel? GetById(int id);
 
         ContactModel Store(ContactModel contact);
+
+        ContactModel? Update(ContactModel data);
     }
 
     public class ContactService : IContact
@@ -35,6 +37,23 @@ namespace AgendaTelefonica.Services
         {
             _dbContext.Contacts.Add(contact);
             _dbContext.SaveChanges();
+            return contact;
+        }
+
+        public ContactModel? Update(ContactModel data)
+        {
+            ContactModel? contact = this.GetById(data.Id);
+            
+            if (contact == null) throw new System.Exception("Erro ao editar contacto");
+
+            contact.Id = data.Id;
+            contact.Name = data.Name;
+            contact.Email = data.Email;
+            contact.Phone = data.Phone;
+
+            _dbContext.Contacts.Update(contact);
+            _dbContext.SaveChanges();
+
             return contact;
         }
     }

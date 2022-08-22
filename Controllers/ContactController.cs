@@ -36,5 +36,12 @@ namespace AgendaTelefonica.Controllers
             ContactModel? contact = _contactServices.GetById(id);
             return View(contact);
         }
+
+        [HttpPost]
+        public IActionResult Update(ContactModel data)
+        {
+            _contactServices.Update(data);
+            return RedirectToAction("Index");
+        }
     }
 }
