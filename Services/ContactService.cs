@@ -6,6 +6,9 @@ namespace AgendaTelefonica.Services
     public interface IContact
     {
         List<ContactModel> GetAll();
+
+        ContactModel? GetById(int id);
+
         ContactModel Store(ContactModel contact);
     }
 
@@ -21,6 +24,11 @@ namespace AgendaTelefonica.Services
         public List<ContactModel> GetAll()
         {
             return _dbContext.Contacts.ToList();
+        }
+
+        public ContactModel? GetById(int id)
+        {
+            return _dbContext.Contacts.FirstOrDefault(x => x.Id == id);
         }
 
         public ContactModel Store(ContactModel contact)

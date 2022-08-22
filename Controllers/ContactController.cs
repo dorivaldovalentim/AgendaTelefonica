@@ -31,9 +31,10 @@ namespace AgendaTelefonica.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Edit()
+        public IActionResult Edit(int id)
         {
-            return View();
+            ContactModel? contact = _contactServices.GetById(id);
+            return View(contact);
         }
     }
 }
