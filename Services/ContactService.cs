@@ -12,6 +12,8 @@ namespace AgendaTelefonica.Services
         ContactModel Store(ContactModel contact);
 
         ContactModel? Update(ContactModel data);
+
+        bool Destroy(int id);
     }
 
     public class ContactService : IContact
@@ -55,6 +57,17 @@ namespace AgendaTelefonica.Services
             _dbContext.SaveChanges();
 
             return contact;
+        }
+
+        public bool Destroy(int id)
+        {
+            ContactModel? contact = this.GetById(id);
+            if (contact == null) throw new System.Exception("Erro ao apagar contacto");
+
+            _dbContext.Contacts.Remove(contact);
+            _dbContext.SaveChanges();
+
+            return true;
         }
     }
 }

@@ -43,5 +43,11 @@ namespace AgendaTelefonica.Controllers
             _contactServices.Update(data);
             return RedirectToAction("Index");
         }
+
+        public IActionResult Destroy(int id)
+        {
+            _contactServices.Destroy(id);
+            return RedirectToAction("Index");
+        }
     }
 }
