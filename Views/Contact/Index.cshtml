@@ -33,22 +33,26 @@
         <tbody>
             @if (Model != null && Model.Any())
             {
-                
-            }
-            @foreach (ContactModel contact in Model)
+                @foreach (ContactModel contact in Model)
+                {
+                    <tr>
+                        <th scope="row">@contact.Id</th>
+                        <td>@contact.Name</td>
+                        <td>@contact.Email</td>
+                        <td>Família</td>
+                        <td>@contact.Phone</td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <a asp-controller="Contact" asp-action="Edit" asp-route-id="@contact.Id" role="button" class="btn btn-primary btn-sm">Editar</a>
+                                <a asp-controller="Contact" asp-action="Destroy" asp-route-id="@contact.Id" role="button" class="btn btn-danger btn-sm">Apagar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            } else
             {
                 <tr>
-                    <th scope="row">@contact.Id</th>
-                    <td>@contact.Name</td>
-                    <td>@contact.Email</td>
-                    <td>Família</td>
-                    <td>@contact.Phone</td>
-                    <td>
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <a asp-controller="Contact" asp-action="Edit" role="button" class="btn btn-primary btn-sm">Editar</a>
-                            <a asp-controller="Contact" asp-action="Destroy" role="button" class="btn btn-danger btn-sm">Apagar</a>
-                        </div>
-                    </td>
+                    <td class="text-center" colspan="6">Sem contactos para apresentar</td>
                 </tr>
             }
         </tbody>
