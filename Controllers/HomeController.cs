@@ -1,6 +1,6 @@
-﻿using AgendaTelefonica.Models;
-using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using AgendaTelefonica.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AgendaTelefonica.Controllers
 {
